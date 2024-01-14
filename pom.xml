@@ -100,26 +100,27 @@
         <!-- ... other plugins ... -->
 
         <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <version>2.7</version> <!-- Use the latest version available -->
-            <configuration>
-                <formats>
-                    <format>html</format>
-                    <format>xml</format>
-                </formats>
-                <outputDirectory>${project.basedir}/target/cobertura-reports</outputDirectory>
-                <dataFile>${project.build.directory}/cobertura/cobertura.ser</dataFile>
-                <!-- Additional configurations as needed -->
-            </configuration>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>cobertura</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>cobertura-maven-plugin</artifactId>
+    <version>2.7</version> <!-- Use the latest version available -->
+    <configuration>
+        <formats>
+            <format>html</format>
+            <format>xml</format>
+        </formats>
+        <outputDirectory>target/cobertura</outputDirectory> <!-- Fix typo here -->
+        <dataFile>${project.build.directory}/cobertura/cobertura.ser</dataFile>
+        <!-- Additional configurations as needed -->
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>cobertura</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+
 
         <!-- ... other plugins ... -->
     </plugins>
