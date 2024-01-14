@@ -54,7 +54,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.1</version>
       </plugin>
-      <plugin>
+     <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-pmd-plugin</artifactId>
             <version>3.15.0</version> <!-- Use the latest version available -->
@@ -70,11 +70,14 @@
             <configuration>
                 <linkXref>true</linkXref>
                 <minimumTokens>100</minimumTokens>
+                <outputDirectory>${project.basedir}/target/pmd-reports</outputDirectory>
+                <outputFile>${project.basedir}/target/pmd-reports/pmd-report.xml</outputFile>
                 <!-- Additional configurations as needed -->
             </configuration>
         </plugin>
         
-        <!-- ... other plugins ... -->
+        
+
             <plugin>
               <groupId>org.owasp</groupId>
               <artifactId>dependency-check-maven</artifactId>
