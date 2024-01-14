@@ -54,6 +54,36 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.1</version>
       </plugin>
+	   <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version> <!-- Use the latest version available -->
+            <executions>
+                <execution>
+                    <id>prepare-agent</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                    <configuration>
+                        <!-- Sets the path where the coverage information will be stored -->
+                        <destFile>${project.build.directory}/jacoco.exec</destFile>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                    <configuration>
+                        <!-- Sets the path where the HTML report will be generated -->
+                        <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                        <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
             <plugin>
               <groupId>org.owasp</groupId>
               <artifactId>dependency-check-maven</artifactId>
