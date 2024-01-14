@@ -95,7 +95,11 @@
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>2.14</version>
 			</plugin>
-			<plugin>
+			<build>
+    <plugins>
+        <!-- ... other plugins ... -->
+
+        <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>cobertura-maven-plugin</artifactId>
             <version>2.7</version> <!-- Use the latest version available -->
@@ -104,17 +108,23 @@
                     <format>html</format>
                     <format>xml</format>
                 </formats>
+                <outputDirectory>${project.basedir}/target/cobertura-reports</outputDirectory>
+                <dataFile>${project.build.directory}/cobertura/cobertura.ser</dataFile>
                 <!-- Additional configurations as needed -->
             </configuration>
             <executions>
                 <execution>
-                    <phase>package</phase>
                     <goals>
                         <goal>cobertura</goal>
                     </goals>
                 </execution>
             </executions>
         </plugin>
+
+        <!-- ... other plugins ... -->
+    </plugins>
+</build>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
